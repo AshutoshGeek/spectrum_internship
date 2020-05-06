@@ -9,14 +9,24 @@ scores = {"Day 1": 100, "Day 2": 108, "Day 3":112, "Day 4":115, "Day 5":150,
           "Day 26":488, "Day 27": 543, "Day 28": 532, "Day 29":590, "Day 30": 605}
 
 scores_list=list(scores.values())
-scores_array=np.array(scores_list)
 Days=np.arange(1,31)
-plt.plot(scores_array,Days)
 
-score_mean=np.mean(scores_array)
-score_median=np.median(scores_array)
-score_mode=stats.mode(scores_array)
+fig= plt.figure()
+ax = fig.add_axes([0,0,1,1])
+ax.plot(scores_list,Days)
+ax.set_ylabel('Days')
+ax.set_xlabel('Score')
+plt.show()
 
-print("score_mean "+ str(score_mean))
-print("score_median "+ str(score_median))
-print("score_mode "+ str(score_mode))
+
+score_mean=np.mean(scores_list)
+score_median=np.median(scores_list)
+score_max=np.amax(scores_list)
+score_min=np.amin(scores_list)
+score_mode=stats.mode(scores_list)
+
+print("Mean of scores is "+ str(score_mean))
+print("Median of scores is "+ str(score_median))
+print("Max score is "+ str(score_max))
+print("Min score is "+ str(score_min))
+print("Mode of scores is "+ str(score_mode))
